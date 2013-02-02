@@ -7,9 +7,18 @@
 
 ### alfredod@cakesolutions.net
 
-!SLIDE left
+!SLIDE
 
 ## Haskell for the Scala programmer
+
+* We won't focus too much on trivialities, because the audience is the
+  novice and/or seasoned functional programmer
+
+![haskellandscala](images/haskell-scala.png)
+
+!SLIDE left
+
+## Haskell at glance
 
 * Haskell is a *purely functional programming language*
 * Lazy by default
@@ -88,7 +97,7 @@ x = 5 -- error!
 ```
 
 * Assignment is defined, in Haskell, in a mathematical sense:
-* We defined ```x``` to be ```10```, and the line after we said it was ```5```
+* We defined ```x``` to be ```10```, and the line after we said it is ```5```
   * Nonsense!
 * In a certain extend, we can think of it how Scala's ```val```
 
@@ -99,7 +108,7 @@ x = 5 -- error!
   * Question: what do you think this program is gonna do?
 
 ``` haskell
-square :: Double -> Double
+square :: Int -> Int
 square x = x * x
 ```
 
@@ -122,3 +131,100 @@ factorial n = n * factorial (n - 1)
 ``` haskell
 factorial n = product [1..n] -- more on that later!
 ```
+
+!SLIDE
+
+## Lazy by default
+
+![lazy bears](images/lazy.jpg)
+
+!SLIDE left
+
+* Haskell is lazy; an expression won't be evaluated until it doesn't to
+
+* This allows us to do pretty cool stuff, making the code easier to reason about
+
+!SLIDE
+
+### Ranges
+
+* We can succinctly create a list specifying a range of numbers:
+
+``` haskell
+[1..5] -- will create [1,2,3,4,5]
+```
+
+**But!** being lazy allows us to write something like this:
+
+``` haskell
+take 3 [0..] --yield [0,1,2]
+```
+
+* We generated **all the naturals numbers**! This is possible because Haskell
+  won't evaluate that infinite sequence, it will only takes the first three elements
+  out of the list!
+
+!SLIDE
+
+## Strongly typed
+
+* As Scala programmer, we already know the advantages of being strongly typed,
+  so we won't dig more inside this last point
+
+![strongly typed](images/strongly-typed.png)
+
+!SLIDE left
+
+## Compiled but interpretable if needed
+
+* Haskell ecosystem is rich:
+* The [Haskell Platform](http://www.haskell.org/platform/) is a convenient distribution which includes:
+  * **GHC**, the _Glasgow Haskell Compiler_
+  * **Cabal**, the _Haskell Package Manager_
+  * **Ghci**, the _Haskell Interpreter_
+
+!SLIDE left
+
+* We can compile our programs directly with GHC, with:
+
+``` shell
+ghc myfile.hs
+```
+
+* ... or we can invoke Ghci to play around:
+
+``` shell
+GHCi, version 7.6.1: http://www.haskell.org/ghc/  :? for help
+Loading package ghc-prim ... linking ... done.
+Loading package integer-gmp ... linking ... done.
+Loading package base ... linking ... done.
+Prelude> 2 + 2
+4
+```
+
+!SLIDE left
+
+## Complementary tools
+
+* [Hackage](http://hackage.haskell.org/packages/hackage.html), a site hosting thousands of high-quality haskell packages (installable with Cabal)
+
+* [Hayoo](http://holumbus.fh-wedel.de/hayoo/hayoo.html) and [Hoogle](http://www.haskell.org/hoogle/),
+  two terrific tools for searching functions, also via type signature
+
+!SLIDE left
+
+## Simple homework
+
+1. Go on Hayoo or Hoogle and search for ```map``` (hint, is the first returned result).
+
+2. Familiar? Is the same ```map``` we also have in Scala
+
+3. Write a function: 
+
+``` haskell
+squareList :: Int -> [Int]
+```
+
+That using the formerly defined ```square```, returns a list of ```n```
+squared elements (hint: the starting list must be from 1 to n).
+

@@ -35,10 +35,25 @@
       </div>
       <div class='spacer bottom'></div>
     </section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Haskell for the Scala programmer</h2>
+        
+        <ul>
+        <li>We won't focus too much on trivialities, because the audience is the
+        novice and/or seasoned functional programmer</li>
+        </ul>
+        
+        
+        <p><img src="images/haskell-scala.png" alt="haskellandscala" /></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
     <section class='left slide'>
   <div class='spacer top'></div>
   <div class='content'>
-    <h2>Haskell for the Scala programmer</h2>
+    <h2>Haskell at glance</h2>
 
 <ul>
 <li>Haskell is a <em>purely functional programming language</em></li>
@@ -120,7 +135,7 @@
         <h3>What is IO () ?</h3>
         
         <ul>
-        <li><p>One of the biggest error in introducing Haskell is starting from the I/O,
+        <li><p>One of the biggest error in teaching Haskell is starting from the I/O,
         namely from something <strong>impure</strong></p></li>
         <li><p>We'll start the other way around, from <strong>pure</strong> (mathematical and non) functions</p></li>
         </ul>
@@ -142,7 +157,7 @@
 
 <ul>
 <li>Assignment is defined, in Haskell, in a mathematical sense:</li>
-<li>We defined <code>x</code> to be <code>10</code>, and the line after we said it was <code>5</code>
+<li>We defined <code>x</code> to be <code>10</code>, and the line after we said it is <code>5</code>
 
 <ul>
 <li>Nonsense!</li>
@@ -168,12 +183,12 @@
 </ul>
 
 
-<p><textarea class='code' display='none' mode='haskell'>square :: Double -> Double&#x000A;square x = x * x</textarea>
+<p><textarea class='code' display='none' mode='haskell'>square :: Int -> Int&#x000A;square x = x * x</textarea>
 </p>
 
 <p><strong>Note</strong>: We could omit the type signature, but it's a good habit to include
-it. It helps you reason about the code and it's the public interface for your
-code!</p>
+it: It helps you reason about the code, making obvious what a function is
+supposed to do.</p>
   </div>
   <div class='spacer bottom'></div>
 </section>
@@ -183,7 +198,7 @@ code!</p>
     <ul>
 <li>One really cool thing is that you can "stack" definition for the same
 function, defining what a function should do for a <em>particular</em> input. This
-allows you to write concise code such as:</li>
+allows us to write concise code such as:</li>
 </ul>
 
 
@@ -194,6 +209,139 @@ allows you to write concise code such as:</li>
 
 <p><textarea class='code' display='none' mode='haskell'>factorial n = product [1..n] -- more on that later!</textarea>
 </p>
+  </div>
+  <div class='spacer bottom'></div>
+</section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Lazy by default</h2>
+        
+        <p><img src="images/lazy.jpg" alt="lazy bears" /></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide'>
+  <div class='spacer top'></div>
+  <div class='content'>
+    <ul>
+<li><p>Haskell is lazy; an expression won't be evaluated until it doesn't to</p></li>
+<li><p>This allows us to do pretty cool stuff, making the code easier to reason about</p></li>
+</ul>
+  </div>
+  <div class='spacer bottom'></div>
+</section>
+    <section class='slide'>
+  <div class='spacer top'></div>
+  <div class='content'>
+    <h3>Ranges</h3>
+    
+    <ul>
+    <li>We can succinctly create a list specifying a range of numbers:</li>
+    </ul>
+    
+    
+    <p><textarea class='code' display='none' mode='haskell'>[1..5] -- will create [1,2,3,4,5]</textarea>
+</p>
+    
+    <p><strong>But!</strong> being lazy allows us to write something like this:</p>
+    
+    <p><textarea class='code' display='none' mode='haskell'>take 3 [0..] --yield [0,1,2]</textarea>
+</p>
+    
+    <ul>
+    <li>We generated <strong>all the naturals numbers</strong>! This is possible because Haskell
+    won't evaluate that infinite sequence, it will only takes the first three elements
+    out of the list!</li>
+    </ul>
+  </div>
+  <div class='spacer bottom'></div>
+</section>
+    <section class='slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Strongly typed</h2>
+        
+        <ul>
+        <li>As Scala programmer, we already know the advantages of being strongly typed,
+        so we won't dig more inside this last point</li>
+        </ul>
+        
+        
+        <p><img src="images/strongly-typed.png" alt="strongly typed" /></p>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide'>
+  <div class='spacer top'></div>
+  <div class='content'>
+    <h2>Compiled but interpretable if needed</h2>
+
+<ul>
+<li>Haskell ecosystem is rich:</li>
+<li>The <a href="http://www.haskell.org/platform/">Haskell Platform</a> is a convenient distribution which includes:
+
+<ul>
+<li><strong>GHC</strong>, the <em>Glasgow Haskell Compiler</em></li>
+<li><strong>Cabal</strong>, the <em>Haskell Package Manager</em></li>
+<li><strong>Ghci</strong>, the <em>Haskell Interpreter</em></li>
+</ul>
+</li>
+</ul>
+  </div>
+  <div class='spacer bottom'></div>
+</section>
+    <section class='left slide'>
+  <div class='spacer top'></div>
+  <div class='content'>
+    <ul>
+    <li>We can compile our programs directly with GHC, with:</li>
+    </ul>
+    
+    
+    <p><textarea class='code' display='none' mode='shell'>ghc myfile.hs</textarea>
+</p>
+    
+    <ul>
+    <li>... or we can invoke Ghci to play around:</li>
+    </ul>
+    
+    
+    <p><textarea class='code' display='none' mode='shell'>GHCi, version 7.6.1: http://www.haskell.org/ghc/  :? for help&#x000A;Loading package ghc-prim ... linking ... done.&#x000A;Loading package integer-gmp ... linking ... done.&#x000A;Loading package base ... linking ... done.&#x000A;Prelude> 2 + 2&#x000A;4</textarea>
+</p>
+  </div>
+  <div class='spacer bottom'></div>
+</section>
+    <section class='left slide'>
+      <div class='spacer top'></div>
+      <div class='content'>
+        <h2>Complementary tools</h2>
+        
+        <ul>
+        <li><p><a href="http://hackage.haskell.org/packages/hackage.html">Hackage</a>, a site hosting thousands of high-quality haskell packages (installable with Cabal)</p></li>
+        <li><p><a href="http://holumbus.fh-wedel.de/hayoo/hayoo.html">Hayoo</a> and <a href="http://www.haskell.org/hoogle/">Hoogle</a>,
+        two terrific tools for searching functions, also via type signature</p></li>
+        </ul>
+      </div>
+      <div class='spacer bottom'></div>
+    </section>
+    <section class='left slide'>
+  <div class='spacer top'></div>
+  <div class='content'>
+    <h2>Simple homework</h2>
+
+<ol>
+<li><p>Go on Hayoo or Hoogle and search for <code>map</code> (hint, is the first returned result).</p></li>
+<li><p>Familiar? Is the same <code>map</code> we also have in Scala</p></li>
+<li><p>Write a function:</p></li>
+</ol>
+
+
+<p><textarea class='code' display='none' mode='haskell'>squareList :: Int -> [Int]</textarea>
+</p>
+
+<p>That using the formerly defined <code>square</code>, returns a list of <code>n</code>
+squared elements (hint: the starting list must be from 1 to n).</p>
   </div>
   <div class='spacer bottom'></div>
 </section>
