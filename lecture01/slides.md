@@ -71,7 +71,7 @@ main = print "Hello World"
 !SLIDE
 
 ### What is IO () ?
-* One of the biggest error in introducing Haskell is starting from the I/O,
+* One of the biggest error in teaching Haskell is starting from the I/O,
 namely from something **impure**
 
 * We'll start the other way around, from **pure** (mathematical and non) functions
@@ -104,8 +104,8 @@ square x = x * x
 ```
 
 **Note**: We could omit the type signature, but it's a good habit to include
-it. It helps you reason about the code and it's the public interface for your
-code!
+it: It helps you reason about the code, making obvious what a function is
+supposed to do.
 
 !SLIDE
 * One really cool thing is that you can "stack" definition for the same
