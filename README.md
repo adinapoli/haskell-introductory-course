@@ -1,11 +1,7 @@
 Training material on Haskell
 ============================
 
-<div align="center">
-
 ![classy](http://www.willamette.edu/~fruehr/logos/PNGs/WithClass.png)
-
-</div>
 
 # Available (or WIP) lectures
 
