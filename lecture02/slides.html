@@ -54,18 +54,59 @@
     <section class='slide'>
   <div class='spacer top'></div>
   <div class='content'>
-    <p><textarea class='code' display='none' mode='ruby'>def method&#x000A;  puts "Hello, World"&#x000A;end</textarea>
+    <h3>A small taste</h3>
+    
+    <ul>
+    <li>There is no concept of "object":</li>
+    </ul>
+    
+    
+    <h4>Scala</h4>
+    
+    <p><textarea class='code' display='none' mode='scala'>List(1,2,3) map { _ * 2 } //calling the map() method of List() object</textarea>
 </p>
+    
+    <h4>Haskell</h4>
+    
+    <p><textarea class='code' display='none' mode='haskell'>map (*2) [1,2,3]</textarea>
+</p>
+    
+    <p>In other terms, functions are first-class citizens!</p>
   </div>
   <div class='spacer bottom'></div>
 </section>
-    <section class='full-background slide test'>
-      <div class='spacer top'></div>
-      <div class='content'>
-        <h1>With a Background Image</h1>
-      </div>
-      <div class='spacer bottom'></div>
-    </section>
+    <section class='left-bottom slide'>
+  <div class='spacer top'></div>
+  <div class='content'>
+    <h2>Our menu</h2>
+
+<ul>
+<li>Conditional branching</li>
+<li>Lists</li>
+<li>Ranges</li>
+<li>List comprehensions</li>
+<li>Tuples</li>
+<li>More on functions</li>
+</ul>
+  </div>
+  <div class='spacer bottom'></div>
+</section>
+    <section class='slide'>
+  <div class='spacer top'></div>
+  <div class='content'>
+    <h3>Conditional branching</h3>
+
+<p>Unlike Scala and most programming language, Haskell <code>if/else</code> must be
+a complete block; in other terms, you <strong>cannot omit the else branch!</strong></p>
+
+<ul>
+<li>That's because <strong>everything</strong> in Haskell is an expression, something which
+returns a value. Because the <code>else</code> is mandatory, an if
+statement will always return something, and that's why is an expression.</li>
+</ul>
+  </div>
+  <div class='spacer bottom'></div>
+</section>
     <!-- deck.js navigation extension -->
     <a class='deck-prev-link' href='#' title='Previous'>&#8592;</a>
     <a class='deck-next-link' href='#' title='Next'>&#8594;</a>
